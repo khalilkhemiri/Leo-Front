@@ -1,0 +1,47 @@
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8"></div>
+
+<div class="container mt--6">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Cotisation des Membres</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="cotisationForm" (ngSubmit)="onSubmit()">
+        <!-- Champ pour le nom -->
+        <div class="form-group">
+          <label for="nom">Nom du Membre</label>
+          <input
+            id="nom"
+            type="text"
+            class="form-control"
+            formControlName="nom"
+            placeholder="Nom du membre"
+            required
+          />
+        </div>
+
+        <!-- Champ pour le montant -->
+        <div class="form-group">
+          <label for="montant">Montant</label>
+          <input
+            id="montant"
+            type="number"
+            class="form-control"
+            formControlName="montant"
+            placeholder="Montant en TND"
+            required
+          />
+        </div>
+
+        <!-- Bouton pour soumettre -->
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!cotisationForm.valid"
+        >
+          Soumettre
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

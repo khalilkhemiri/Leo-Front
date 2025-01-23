@@ -1,0 +1,62 @@
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8"></div>
+
+<div class="container mt--6">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Ajouter une Transaction à la Caisse du Membre</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+        <!-- Champ pour le libelle -->
+        <div class="form-group">
+          <label for="libelle">Libellé</label>
+          <input
+            id="libelle"
+            type="text"
+            class="form-control"
+            formControlName="libelle"
+            placeholder="Libellé de la transaction"
+            required
+          />
+        </div>
+
+        <!-- Champ pour le montant -->
+        <div class="form-group">
+          <label for="montant">Montant</label>
+          <input
+            id="montant"
+            type="number"
+            class="form-control"
+            formControlName="montant"
+            placeholder="Montant en TND"
+            required
+          />
+        </div>
+
+        <!-- Champ pour le type de transaction -->
+        <div class="form-group">
+          <label for="type_transaction">Type de Transaction</label>
+          <select
+            id="type_transaction"
+            class="form-control"
+            formControlName="type_transaction"
+            required
+          >
+            <option value="">Choisir le type de transaction</option>
+            <option value="entrée">Entrée</option>
+            <option value="sortie">Sortie</option>
+          </select>
+        </div>
+
+        <!-- Bouton pour soumettre -->
+        <button
+          type="submit"
+          class="btn btn-info"
+          [disabled]="!transactionForm.valid"
+        >
+          Soumettre
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

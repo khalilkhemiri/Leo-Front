@@ -1,0 +1,45 @@
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8"></div>
+
+
+<div class="container mt--6 row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Historique des Cotisations</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Numéro</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Payé (DT)</th>
+                <th scope="col">Restant à payer (DT)</th>
+                <th scope="col">Pourcentage payé </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cotisation of cotisations">
+                <th scope="row">{{ cotisation.numero }}</th>
+                <td>{{ cotisation.nom }}</td>
+                <td>{{ cotisation.cotisation | number:'1.0-2' }} DT</td> <!-- Montant payé -->
+                <td>{{ (40 - cotisation.cotisation) | number:'1.0-2' }} DT</td> 
+                <td>
+                  <div class="d-flex align-items-center">
+                    <span class="mr-2">{{ calculatePercentage(cotisation.cotisation) }}%</span>
+                    <div>
+                      <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" [style.width]="calculatePercentage(cotisation.cotisation) + '%'" aria-valuenow="{{ calculatePercentage(cotisation.cotisation) }}" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </td><!-- Montant restant à payer -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

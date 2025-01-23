@@ -1,0 +1,40 @@
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8"></div>
+
+<div class="container mt--6 col-xl-8 mb-5 mb-xl-0">
+    <div class="card shadow">
+      <div class="card-header border-0">
+        <div class="row align-items-center">
+          <div class="col">
+            <h3 class="mb-0">Historique Caisse Membre</h3>
+          </div>
+          <div class="col text-right">
+            <a href="" class="btn btn-sm btn-primary">See all</a>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <!-- Projects table -->
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Libellé</th>
+              <th scope="col">Entrée</th>
+              <th scope="col">Sortie</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of transactions">
+              <th scope="row">{{ transaction.date }}</th>
+              <td>{{ transaction.libelle }}</td>
+              <td>{{ transaction.entree | number }}</td>
+              <td>{{ transaction.sortie | number }}</td>
+              <td>{{ transaction.total | number }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
