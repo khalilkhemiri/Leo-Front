@@ -31,7 +31,7 @@ export class CaisseMembreComponent implements OnInit {
 
       // Appel API pour ajouter une transaction
       this.http
-        .post('http://192.168.2.1:8080/ajouter_transaction_caisse_membre', transactionData)
+        .post('https://leo-backend-94kg.onrender.com/ajouter_transaction_caisse_membre', transactionData)
         .subscribe(
           (response) => {
             console.log(response);  // Afficher la réponse de succès

@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
 		});
   }
   getDashboardCaisseData(): void {
-    this.http.get<any>('http://192.168.2.1:8080/dashboard_caisse_action')
+    this.http.get<any>('https://leo-backend-94kg.onrender.com/dashboard_caisse_action')
       .subscribe(
         (response) => {
           this.totalEntrees = response.total_entrees;

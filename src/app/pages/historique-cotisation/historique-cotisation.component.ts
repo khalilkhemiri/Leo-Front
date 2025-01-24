@@ -16,11 +16,10 @@ export class HistoriqueCotisationComponent implements OnInit {
   }
 
   loadCotisations() {
-    // Appel HTTP pour récupérer les cotisations
-    this.http.get<any[]>('http://192.168.2.1:8080/rafraichir_cotisations')
+    this.http.get<any[]>('https://leo-backend-94kg.onrender.com/rafraichir_cotisations')
       .subscribe(
         data => {
-          // Mettez à jour les cotisations avec les données récupérées
+          console.log('Cotisations received:', data); 
           this.cotisations = data;
         },
         error => {

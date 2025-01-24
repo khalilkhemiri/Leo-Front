@@ -17,7 +17,7 @@ export class HistoriqueMembreComponent implements OnInit {
 
   loadCaisseHistory() {
     // Appel HTTP directement dans le composant
-    this.http.get<any[]>('http://192.168.2.1:8080/rafraichir_caisse_membre')
+    this.http.get<any[]>('https://leo-backend-94kg.onrender.com/rafraichir_caisse_membre')
       .subscribe(
         data => {
           // Mettez à jour les transactions avec les données récupérées

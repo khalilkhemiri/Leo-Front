@@ -33,7 +33,7 @@ export class TransactionActionComponent implements OnInit {
 
       // Appel API pour ajouter une transaction
       this.http
-        .post('http://192.168.2.1:8080/ajouter_transaction', transactionData)
+        .post('https://leo-backend-94kg.onrender.com/ajouter_transaction', transactionData)
         .subscribe(
           (response) => {
             console.log(response);  // Afficher la réponse de succès

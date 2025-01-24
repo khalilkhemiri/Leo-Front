@@ -19,12 +19,12 @@
 
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="cotisations && cotisations.length > 0">
               <tr *ngFor="let cotisation of cotisations">
                 <th scope="row">{{ cotisation.numero }}</th>
                 <td>{{ cotisation.nom }}</td>
-                <td>{{ cotisation.cotisation | number:'1.0-2' }} DT</td> <!-- Montant payé -->
-                <td>{{ (40 - cotisation.cotisation) | number:'1.0-2' }} DT</td> 
+                <td>{{ cotisation.cotisation | number:'1.0-2' }} DT</td>
+                <td>{{ (40 - cotisation.cotisation) | number:'1.0-2' }} DT</td>
                 <td>
                   <div class="d-flex align-items-center">
                     <span class="mr-2">{{ calculatePercentage(cotisation.cotisation) }}%</span>
@@ -34,9 +34,15 @@
                       </div>
                     </div>
                   </div>
-                </td><!-- Montant restant à payer -->
+                </td>
               </tr>
             </tbody>
+            <tbody *ngIf="cotisations && cotisations.length === 0">
+              <tr>
+                <td colspan="5" class="text-center">No cotisations available.</td>
+              </tr>
+            </tbody>
+            
           </table>
         </div>
       </div>

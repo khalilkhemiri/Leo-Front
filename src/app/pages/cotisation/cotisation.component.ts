@@ -28,7 +28,7 @@ export class CotisationComponent implements OnInit {
       const cotisationData = this.cotisationForm.value;
     
       // Appel de l'API avec HttpClient directement dans le composant
-      this.http.post('http://192.168.2.1:8080/ajouter_cotisation', cotisationData, {
+      this.http.post('https://leo-backend-94kg.onrender.com/ajouter_cotisation', cotisationData, {
         headers: {
           'Content-Type': 'application/json'
         }
